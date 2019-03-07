@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import denver from "./images/denver.jpg";
+import Email from "./Email";
 
 class Landing extends Component {
   render() {
@@ -77,7 +78,8 @@ class Landing extends Component {
                 </p>
               </div>
               <div className="card-action">
-                <a href="/about">Send Message</a>
+                <p className="flow-text">Time for some fun!</p>
+                <Email />
               </div>
             </div>
           </div>

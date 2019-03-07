@@ -1,7 +1,6 @@
 // EmailForm shows a form for a user to add input
 import _ from "lodash";
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { reduxForm, Field } from "redux-form";
 
 import EmailField from "./EmailField";
