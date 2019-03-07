@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t dkyoo/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run dkyoo/react-test npm run test -- --coverage
+
+after_success:
+  - docker build -t dkyoo/gridder-client ./client
+  - docker build -t dkyoo/gridder-nginx ./nginx
+  - docker build -t dkyoo/gridder-server ./server
+
+  # Log in to docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Push them to docker hub
+  - docker push dkyoo/gridder-client
+  - docker push dkyoo/gridder-nginx
+  - docker push dkyoo/gridder-server
+ 
