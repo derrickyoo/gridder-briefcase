@@ -2,7 +2,7 @@ const Mailer = require("../services/Mailer");
 const emailTemplate = require("../services/emailTemplates/thanks");
 
 module.exports = app => {
-  app.post("/messages", async (req, res) => {
+  app.post("/emails", async (req, res) => {
     const { recipients } = req.body;
 
     const msg = {
